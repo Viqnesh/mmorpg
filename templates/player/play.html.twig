@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wyrmhaven - Map{% endblock %}
+
+{% block body %}
+    {% include "inc/header.html.twig" %}
+
+
+<script src="https://labs.phaser.io/js/datgui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.js"></script>
+<script src="{{ asset('js/Game.js') }}"></script>
+
+
+{% endblock %}
+

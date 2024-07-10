@@ -1,0 +1,701 @@
+@font-face {
+    font-family: 'Tungsten';
+    src: url('../fonts/Tungsten-Bold.otf');
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/RobotoSlab-Bold.ttf');
+}
+@font-face {
+    font-family: 'Berkshire';
+    src: url('../fonts/BerkshireSwash-Regular.ttf');
+}
+.d-flex {
+    display: flex;
+}
+.berk-title {
+    font-family: 'Berkshire';
+    font-size: 80px;
+    margin: 5%;
+}
+.berk {
+    font-family: 'Berkshire';
+}
+.skyblue {
+    color: lightskyblue;
+}
+.map-title {
+    font-family: 'Pixel';
+    font-size: 30px;
+    position: fixed;
+    /* display: block; */
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    margin-left: 78%;
+    color: white;
+    -webkit-text-stroke: 0.5px white;
+    letter-spacing: 1px;
+    margin-top: 38%;
+
+}
+#latlng {
+    font-family: 'Pixel';
+    font-size: 50px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    margin-left: 15%;}
+.maskey {
+    display: none;
+}
+.d-block {
+    display: block;
+}
+.container-full {
+    display: flex;
+    justify-content: center;
+}
+#map {     
+    height: 900px;
+    ;width: 100%; 
+    cursor : url('../images/curso.png'), auto;
+    justify-content: center;    position: fixed!important; }
+header {
+    height: 70px;
+    width: 100%;
+    cursor : url('../images/curso.png'), auto;
+    justify-content: center;
+    border-image: url('cadre.png') 30;
+    background-color: #241E38;
+    display: flex;
+    place-items: center;
+    
+    border-top: 3px solid lightgrey;
+}
+ul {
+    margin:0!important;
+    list-style: none;
+    display: inline-flex;
+    padding-inline-start: 0!important;
+}
+.shadow-sm {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+li {
+    font-family: 'Roboto';
+    color: white;
+    -webkit-text-stroke: 0.5px white;
+
+    font-size: 20px;
+    padding: 1em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+li:hover {
+    color: #F5C48A;
+    cursor: pointer;
+    text-shadow: #FC0 1px 0 10px;
+}
+.play-button {
+    font-size: 35px;
+    padding: 0.4em!important;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+.rectangle {
+    width: 200px;
+    background-color: #C79559;
+    border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+}
+body {
+    margin: 0!important;
+}
+
+.play-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.info-compte li:hover {
+    color: white;
+    cursor: initial;
+}
+.leaflet-popup {
+    background-image: url('../images/box.png')!important;
+}
+.tooltip {
+    position: relative;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext  {
+    visibility: hidden;
+    width: 230px;
+    height: 150px;
+    background-color: #241E38;
+    font-family: 'Pixel';
+    color: white;
+    letter-spacing: 1px ;
+    -webkit-text-stroke: 0.5px white;
+    margin-top: 65%;
+    text-align: center;
+    display: block;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  .tooltiptext span {
+    display: block;
+    text-align: initial;
+    margin-left: 17%;
+    margin-bottom: 4%;
+    margin-top: 7%;
+  }
+  .tooltiptext img {
+    text-align: initial;
+    margin-left: 18%;
+  }
+  .tooltiptext h2 {
+    text-align: initial;
+    margin-left: 17%;
+  }
+  .tooltip:hover .tooltiptext  {
+    visibility: visible;
+  }
+
+.title {
+    font-size: 40px;
+    font-family: 'Pixel';
+    color: white;
+    letter-spacing: 1px ;
+
+    -webkit-text-stroke: 0.5px black;
+    text-align: center;
+    justify-content: center;
+}
+
+.list-shop {
+    width: 600px;
+    background-color: #241E38;
+    margin-left: 10%!important;
+
+}
+.list-shop span {
+    display: block;
+    color: bisque;
+    font-size: 20px;
+    margin: 5%;
+    font-family: 'Pixel';
+    padding: 2.5%;
+
+}
+.sac-shop  {
+    width: 800px;
+    background-color: #241E38;
+    margin-left: 10%;
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ribbon-equip {
+    font-size: 9px;
+    font-family: 'Pixel';
+    display: block;
+    color: white;
+    margin-top: auto;
+    padding: 5%;
+    background-color: black;
+    margin-top: 80%;
+}
+.sac-shop span {
+    display: block;
+    color: bisque;
+    font-size: 20px;
+    font-family: 'Pixel';
+    padding: 4%;
+}
+
+.info-shop {
+    height:260px;
+    width: 800px;
+    background-color: #241E38;
+    margin-left: 10%;
+    margin-top: 5%;
+
+}
+
+.description {
+    border: 10px solid bisque;
+    /* margin: 5%; */
+    height: 240px;
+    width: 780px;
+    display: flex;
+}
+
+.description h3 {
+    margin: 4%;
+    font-size: 25px;
+    font-family: 'Pixel';
+    color: bisque;
+}
+
+.description p {
+    margin: 4%;
+    font-size: 15px;
+    font-family: 'Pixel';
+    color: bisque;
+}
+
+.description span {
+    font-size: 18px;
+    color: bisque;
+    font-family: 'Pixel';
+    margin: 4%;
+}
+.list-block h3 {
+    font-family: 'Pixel';
+    font-size: 30px;
+    margin-left: 12%;
+    color: white;
+}
+
+.sac-block h3 {
+    color: white;
+    margin-left: 12%;
+    font-family: 'Pixel';
+    font-size: 30px;
+}
+
+.item-slot-sac {
+    width: 70px;
+    height: 70px;
+    background-color: #1D1A2F;
+    margin: 2%;
+}
+
+.item-slot-shop {
+    width: 70px;
+    height: 70px;
+    background-color: #1D1A2F;
+    margin: 3%;
+}
+.button-slot {
+    display: flex;
+    width: 100%;
+    margin-left: 4%;
+}
+.button-rpg {
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    margin-top: -3%;
+    margin-right: 5%;
+    font-family: 'Pixel';
+    width: 170px;
+    padding: 3%;
+}
+.button-rpg:hover {
+    color: #C79559;
+}
+.row-sac {
+    display: flex;
+    width: inherit;
+}
+
+.text-dark {
+    color: black;
+}
+.tree {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
+.skilltree {
+    width: 800px;
+    background-color: #241E38;
+    padding: 1%;
+}
+.skilltree .row-sac {
+    justify-content: center;
+}
+.skilltree-slot {
+    width: 80px;
+    height: 80px;
+    background-color: #1D1A2F;
+    margin: 2%;
+}
+.specialtree {
+    height: 750px;
+    width: 600px;
+    background-color: #1D1A2F;
+    margin-right: 5%;
+    margin-left: 5%;
+
+}
+
+.stats {
+    display: flex;
+    width: 500px;
+    place-items: center;
+    justify-content: center;
+}
+.info-skill {
+    display: flex;
+    width: 500px;
+    place-items: center; 
+}
+.stats img {
+
+    padding: 5%;
+}
+.classe-stats {
+    display: grid;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.classe-stats span {
+    font-family: 'Pixel';
+    color: white;
+    font-size: 20px;
+}
+
+.stats-sep {
+    height: 4px;
+    color: white;
+    background-color: white;
+    border: white;
+    margin-top: 5%;
+
+}
+
+.onglet-stats {
+    margin-left: 3%;
+}
+.exp-bar-stats {
+    display: grid;
+}
+.exp-info {
+    font-family: 'Pixel';
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    margin: 2%;
+}
+progress {
+    -webkit-appearance: none;
+    width: 340px;
+    margin-left: 16%;
+}
+  
+::-webkit-progress-bar {
+    background-color: orange;
+}
+.title-onglet {
+    font-family: 'Pixel';
+    font-size: 24px;
+    padding: 3%;
+    color: black;
+    background-color: white;
+}
+.skill-slot {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    margin: 3%;
+}
+.list-weapons {
+    width: 600px;
+    background-color: #241E38;
+    margin-left: 10%!important;
+    display: flex;
+}
+
+.stats-list  {
+    width: 800px;
+    background-color: #241E38;
+    margin-left: 10%;
+    padding: 1%;
+}
+
+.stats-list span {
+    display: block;
+    color: white;
+    font-size: 25px;
+    font-family: 'Pixel';
+    padding: 2%;
+}
+
+.details-block {
+}
+
+.details-block h3 {
+    width: max-content;
+    color: white;
+    margin-left: 60%;
+    font-family: 'Pixel';
+    font-size: 30px;
+}
+
+.stats h3 {
+    width: max-content;
+    color: white;
+    margin-left: 50%;
+    font-family: 'Pixel';
+    font-size: 30px;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background-color : #241E38!important;
+    font-family: 'Pixel';
+    font-size : 20px;
+    text-align: center!important;
+    border-radius: unset!important;
+    color: white!important;
+}
+canvas {position: fixed;}
+.inventory-title {
+    color: white;
+    margin-left: 12%;
+    font-family: 'Pixel';
+    font-size: 25px;
+}
+.skilltree-title {
+    color: white;
+    margin-left: 12%;
+    font-family: 'Pixel';
+    font-size: 25px;
+}
+.detail-title {
+    font-family: 'Pixel';
+    font-size: 30px;
+    color: white;
+}
+.detail-text {
+    font-family: 'Pixel';
+    font-size:14px;
+    color: white;
+    text-align: justify;
+    width: 80%;
+
+}
+.status {
+    width: 500px;
+
+}
+.state-stat {
+    display: block;
+    font-family: 'Pixel';
+    font-size: 20px;
+    color: white;
+    margin-left: 18%;
+}
+.bar-st {
+    margin-left: 18%!important;
+    width: 40%;
+    margin-bottom: 5%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+
+}
+
+.attributs {
+    display: block;
+    font-family: 'Pixel';
+    font-size: 20px;
+    color: white;
+    margin: 7%;
+}
+
+.info-skill {
+
+}
+
+/* Form Rendering  */
+form {
+    display: block
+    color: white;
+    font-family: 'Pixel';
+}
+.row-form {
+    display: flex;
+    justify-content: center;
+}
+.col-form {
+    text-align: center;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+
+    margin-bottom: 2%;
+}
+.col-form-cgu {
+    /* width: 500px; */
+    text-align: center;
+    display: flex;
+    /* place-items: center; */
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 6%;
+}
+}
+.form_label {
+    font-size: 30px;
+    color: yellow;
+    text-align: center;
+    text-shadow: 1px 1px 2px red, 0 0 1em yellow, 0 0 0.2em yellow;
+}
+.form_label_login {
+    font-size: 30px;
+    color: yellow;
+    display: block;
+    margin-left: auto;
+    /* width: 500px; */
+    height: 80px;
+    text-align: inherit;
+    text-shadow: 1px 1px 2px red, 0 0 1em yellow, 0 0 0.2em yellow;
+}
+.form_label_cgu {
+    font-size: 25px;
+    color: yellow;
+    display: flex;
+    /* justify-content: flex-end; */
+    margin-left: auto;
+    width: 1200px;
+    height: 80px;
+    text-align: inherit;
+    text-shadow: 1px 1px 2px red, 0 0 1em yellow, 0 0 0.2em yellow;
+}
+.form_widget {
+    margin-left: 5%;
+    height: 35px;
+    width: 100%;
+    background-color: #241E38;
+    border: none;
+    color: white;
+}
+
+.col-label {
+    width: 250px;
+}
+.col-label-cgu {
+    width: 900px;
+}
+
+.col-widget {
+    display: flex;
+    width: 300px;
+}
+
+.btn-register {
+    width: 300px;
+    height: 80px;
+    /* display: flex; */
+    font-family: 'Roboto';
+    /* background-image: url(../images/button.png); */
+    background-size: contain;
+    background-color: darkslateblue;
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    /* color: yellow; */
+    text-align: center;
+    /* text-shadow: 1px 1px 2px red, 0 0 1em yellow, 0 0 0.2em yellow; */
+    justify-content: center;
+    margin-top: 2%;
+    border: none;
+}
+.login-picture {
+}
+.login-interface {
+    display: flex;
+    position: fixed;
+    width: 100%;
+}
+.form-box {
+    /* margin-left: auto; */
+    /* margin-top: auto; */
+    /* margin-right: auto; */
+    width: 100%;
+    background-color: #17344F;
+    color: white;
+    /* margin-bottom: auto; */
+    /* height: 100%;*/
+    
+}
+.navlog {
+    width: 100%;
+    display: flex;
+    height: 50px;
+    background-color: black;
+}
+.title-logo {
+    text-align: center;
+}
+.label-nav {
+    display: inline-flex;
+    font-family: 'Roboto';
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 1%;
+    margin-left: 1%;
+    align-items: center;
+}
+.label-nav p {
+    margin-left: 15%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.icon-logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1%;
+}
+.login-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2%;
+    size: b5;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+.logo-title {
+    font-family: 'Roboto';
+}
+button {
+    all: unset;
+}
+
+.col-form-connexion {
+    /* width: 750px; */
+    text-align: center;
+    justify-content: center;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    font-family: 'Roboto';
+
+    display: flex;
+    place-items: center;
+    margin-bottom: 6%;
+}

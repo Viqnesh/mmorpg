@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wyrmhaven - Compétences{% endblock %}
+
+{% block body %}
+    {% include "inc/header.html.twig" %}
+<body style="background-color: #241E38;background-position-x: center;">
+            <h1 class="title mt-1">COMPETENCES</h1>
+            <div class="tree">
+                <div class="onglet-stats">
+                    <h3 class="skilltree-title" style="    margin-top: 0%;
+                    margin-bottom: 1%;">GENERAL</h3>
+                    <div class="stats">
+                        <img src="{{asset('images/badge.png')}}" width="80px" height="80px">
+                        <div class="classe-stats">
+                            <span>NIVEAU {{stats.lvl.numero}} {{stats.classe.nom}}</span>
+                            <span>{{stats.nom}}</span>
+                        </div>
+                    </div>
+                    <div class="exp-bar-stats">
+                        <div class="exp-info">
+                            <span class="">NIVEAU {{stats.lvl.numero}}</span>
+                            <span>{{stats.lvl.palier - stats.xp }}  EXP TO LVL {{stats.lvl.numero + 1}}</span>
+                        </div>
+                        <progress value="{{stats.xp}}" max="{{stats.lvl.palier}}"></progress>
+                    </div>
+                    <h3 class="skilltree-title">ARMES A DEBLOQUER</h3>
+                    <div class="row-sac" style="margin-left: 15%;
+                    ">
+                    <div class="js-user-rating" data-armes="{{ armes|serialize(format = 'json') }}">                    </div>
+                    <div class="js-spells-rating" data-spells="{{ spells|serialize(format = 'json') }}">                    </div>
+
+                    {% for arme in armes %}
+
+                        <div class="item-slot-sac" onclick="showWeapon({{arme.armeSpeciale.id}});" style="background-image:url({{asset('images/chevalier/'~ arme.armeSpeciale.img ~'.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">{{arme.armeSpeciale.state}}</span>
+                        </div>                    
+                    {% endfor %}
+
+                    </div>
+                    <h3 class="skilltree-title">COUPS SPECIALES</h3>
+                    <div class="row-sac" style="margin-left: 15%;
+                ">
+                        {% for spell in spells %}
+
+                        <div class="item-slot-sac" onclick="showSpell({{spell.coupSpeciale.id}});" style="background-image:url({{asset('images/chevalier/'~ spell.coupSpeciale.img ~'.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">{{spell.coupSpeciale.state}}</span>
+                        </div>                    
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="sac-block">
+=                    <div class="skilltree">
+                        <div class="row-sac">
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/chevalier.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                        </div>
+                        <div class="row-sac">
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/cheval2.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/demonchevalier.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/dragon.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                        </div>
+                        <div class="row-sac">
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/epee3.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                        </div>
+                        <div class="row-sac">
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/embleme.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/awaken.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/paix.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                        </div>
+                        <div class="row-sac">
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/shield2.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/cheval.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/embleme2.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                        </div>
+                        <div class="row-sac">
+                            <div class="skilltree-slot" style="background-image:url({{asset('images/chevalier/shield1.jpg')}});background-size: contain;    filter: brightness(0.5);">
+                                <span class="ribbon-equip">0/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="onglet-stats">
+                <h3 class="inventory-title" style="margin-left:0!important;">DETAILS</h3>
+                <div class="info-skill">
+                    <div class="item-slot-sac" id="detail-slot-click" >
+                    </div>
+                    <h4 class="inventory-title detail-skill-title" style="margin-left: 0%!important;"> DETAIL SKILL</h4>
+                </div>
+                <div>
+                    <p class="detail-text">Description du skill selectionné
+                    </p>
+
+                </div>
+
+            </div>
+
+
+    </div>
+</body>
+<script>
+    var userRating = document.querySelector('.js-user-rating');
+    var spellsRating = document.querySelector('.js-spells-rating');
+    var isAuthenticated = userRating.dataset.isAuthenticated;
+    var user = JSON.parse(userRating.dataset.armes);
+    var spells = JSON.parse(spellsRating.dataset.spells);
+  function showWeapon(id) {
+    console.log(user[id-1].ArmeSpeciale);
+    var el = document.getElementById("detail-slot-click");
+    el.setAttribute("style", "background-image:url('images/chevalier/"+user[id-1].ArmeSpeciale.img+".jpg');background-size: contain;" ) ;
+    document.querySelector('.detail-skill-title').innerHTML = user[id-1].ArmeSpeciale.nom ;
+    document.querySelector('.detail-text').innerHTML = user[id-1].ArmeSpeciale.description ;
+}
+
+  function showSpell(id) {
+    console.log(spells[id-1].coupSpeciale);
+    var el = document.getElementById("detail-slot-click");
+    el.setAttribute("style", "background-image:url('images/chevalier/"+spells[id-1].coupSpeciale.img+".jpg');background-size: contain;" ) ;
+    document.querySelector('.detail-skill-title').innerHTML = spells[id-1].coupSpeciale.nom ;
+    document.querySelector('.detail-text').innerHTML = spells[id-1].coupSpeciale.description ;
+}
+</script>
+{% endblock %}

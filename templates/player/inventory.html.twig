@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wyrmhaven - Inventaire{% endblock %}
+
+{% block body %}
+<body style="background-color: #241E38;   background-position-x: center;">
+
+    {% include "inc/header.html.twig" %}
+
+            <h1 class="title mt-1">GENERAL</h1>
+            <div class="d-flex">
+            
+            <div class="d-flex">
+                <div class="onglet-stats">
+                    <h3 class="inventory-title">STATUS</h3>
+                    <div class="status">
+                        <span class="state-stat">HP : {{stats.hp}} / {{stats.hp}} </span>
+                        <progress class="bar-st" value="{{stats.hp}}" max="{{stats.hp}}"></progress>
+                        <span class="state-stat">MP : {{stats.pm}} / {{stats.pm}}</span>
+                        <progress class="bar-st" value="{{stats.pm}}" max="{{stats.pm}}"></progress>
+                    <h3 class="inventory-title">ATTRIBUTS</h3>
+                        <div>
+                        <div class="d-flex" style="margin-left: 12%;">
+                            <span class="attributs">ATK {{stats.atk}}</span>
+                            <span class="attributs">DEF  {{stats.def}}</span>
+                            <span class="attributs">AGI  {{stats.agi}}</span>
+                        </div>
+                        <div class="d-flex" style="margin-left: 12%;">
+                            <span class="attributs">MAG  {{stats.mag}}</span>
+                            <span class="attributs">FOR  {{stats.pwr}}</span>
+                            <span class="attributs">INT  {{stats.intel}}</span>
+                        </div>
+                        </div>
+                    <h3 class="inventory-title">EQUIPEMENT</h3>
+                        <div class="row-sac" style="margin-left: 15%;">
+                        {% if equipement.tete is not null %}
+                            {{equipement.tete.nom}}
+                        {% else %}
+                            <div class="item-slot-sac"  onclick="showEquipement('TETE');" >
+                                <span class="ribbon-equip">TETE</span>
+                            </div>                        
+                        {% endif %}
+                        {% if equipement.jambes is not null %}
+                            {{equipement.jambes.nom}}
+                        {% else %}
+                            <div class="item-slot-sac" onclick="showEquipement('JAMBES');">
+                            <span class="ribbon-equip">JAMBES</span>
+                            </div>                        
+                        {% endif %}
+                        {% if equipement.main is not null %}
+                            {{equipement.main.nom}}
+                        {% else %}
+                            <div class="item-slot-sac" onclick="showEquipement('MAIN');">
+                            <span class="ribbon-equip">MAIN</span>
+                            </div>                        
+                        {% endif %}
+                        {% if equipement.corps is not null %}
+                            {{equipement.corps.nom}}
+                        {% else %}
+                            <div class="item-slot-sac" onclick="showEquipement('CORPS');">
+                                <span class="ribbon-equip">CORPS</span>
+
+                            </div>                        
+                        {% endif %}
+                        </div>
+                        <div class="row-sac" style="margin-left: 15%;" >
+                        {% if equipement.melee is not null %}
+                            {{equipement.melee.nom}}
+                        {% else %}
+                            <div class="item-slot-sac" id="slot-armure" onclick="showEquipement('MELEE');">
+                                <span class="ribbon-equip">MELEE</span>
+                            </div>                        
+                        {% endif %}
+                        {% if equipement.distance is not null %}
+                            {{equipement.distance.nom}}
+                        {% else %}
+                            <div class="item-slot-sac" id="slot-armure" onclick="showEquipement('DISTANCE');">
+                                <span class="ribbon-equip">DISTANCE</span>
+                            </div>                        
+                        {% endif %}
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="sac-block">
+                    <h3 class="inventory-title">INVENTAIRE 0 / {{inventory.size}}</h3>
+                    <div class="sac-shop">
+                    {% for i in 0..inventory.size %}
+                            <div class="item-slot-sac" id="item">
+
+                            </div>                    
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="onglet-stats">
+                    <h3 class="inventory-title">DETAILS</h3>
+                    <div class="stats">
+                        <div class="item-slot-sac" style="margin-left: -28%;">
+                            <span class="ribbon-equip ribbon-equip-selected">SAMPLE</span>
+                        </div>
+                        <h4 class="inventory-title detail-item-title" style="margin-left: 0%!important;"> DETAIL ITEM</h4>
+                    </div>
+                    <div style="margin-left: 12%;">
+                        <p class="detail-text">Description de l'item selectionné
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+</body>
+<script>
+  function showEquipement(nom) {
+    console.log(nom);
+    document.querySelector('.ribbon-equip-selected').innerHTML = nom ;
+    document.querySelector('.detail-text').innerHTML = "VTest" + nom ;
+    document.querySelector('.detail-item-title').innerHTML = "EMPLACEMENT" + nom ;
+
+}
+</script>
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="navlog">
+    <img class="icon-logo" src="{{ asset('../images/crosssword.png') }}" width="40px">
+    <span class="label-nav" >CONNEXION</span>
+    <span class="label-nav" >S'INSCRIRE</span>
+</div>
+<div class="login-interface">
+
+        <div class="login-face">
+            <img src="{{ asset('../images/welcome.jpg') }}" class="login-picture">
+        </div>
+
+        <div class="form-box shadow">
+            <div class="login-title">
+                            <img class="title-logo" src="{{ asset('../images/crosssword.png') }}" width="100px">
+            <h1 class="justify-content-center logo-title"> ADVEN QUEST </h1>
+            </div>
+
+    {{ form_start(registrationForm) }}
+
+    <div class="">
+        <div class="col-form-connexion">
+                <div class="col-label">
+                                <h2> LOGIN : </h2>
+                </div>
+                <div class="col-widget">
+                {{ form_widget(registrationForm.username , {'attr': {'class': 'form_widget'}}) }}
+                </div>
+        </div>
+        <div class="col-form-connexion">
+                <div class="col-label">
+                                <h2> PASSWORD : </h2>
+                </div>
+                <div class="col-widget">
+                {{ form_widget(registrationForm.plainPassword , {'attr': {'class': 'form_widget'}}) }}
+                </div>
+        </div>
+    </div>
+
+        <div class="row-form">
+        <button type="submit" class="btn-register">INSCRIPTION</button>
+        </div>
+    {{ form_end(registrationForm) }}
+
+        </div>
+
+</div>
+{% endblock %}

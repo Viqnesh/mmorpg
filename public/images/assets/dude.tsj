@@ -1,0 +1,15 @@
+{ "columns":17,
+ "image":"dude.png",
+ "imageheight":240,
+ "imagewidth":545,
+ "margin":0,
+ "name":"dude",
+ "spacing":0,
+ "tilecount":119,
+ "tiledversion":"1.10.1",
+ "tileheight":32,
+ "tilewidth":32,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.10"
+}

@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wyrmhaven - Map{% endblock %}
+
+{% block body %}
+    {% include "inc/header.html.twig" %}
+     <div id="map"></div>
+    <h1 class="map-title ">    {{ form_start(form) }}
+    <div class="form-group p-3 maskey current-city">
+        <label  for="exampleInputEmail1">Latitude : </label>
+        {{ form_widget(form.lat) }}
+    </div>
+    <div class="form-group p-3 maskey">
+        <label for="exampleInputPassword1">Longitude :</label>
+        {{ form_widget(form.lng) }}
+    </div>
+    <div class="form-group p-3">
+        {{ form_widget(form.currentCity , {'id': 'latlng'}) }}
+    </div>
+    <div class="form-group text-center ">
+        <button class="btn btn-primary m-3 text-center maskey">{{ button_label|default('Save') }}</button>
+    </div>
+    {{ form_end(form) }}</h1>
+    <h3 class="text-center text-dark justify-content-center p-4"> Ma Position Actuelle :</h3>
+
+
+        <div class="js-lat-rating"
+        >
+        </div>
+        <div class="js-lng-rating"
+        >
+        </div>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="https://unpkg.com/mappa-mundi/dist/mappa.min.js" type="text/javascript"></script>
+    <script>
+    var map = L.map('map', {
+        crs: L.CRS.Simple
+    });
+    var maisonIcon = L.icon({
+    iconUrl: '{{ asset("images/city.png") }}',
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+var greenIcon = L.icon({
+    iconUrl: '{{ asset("images/marker.png") }}',
+    iconSize:     [70, 70], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var armory = L.icon({
+    iconUrl: '{{ asset("images/icons/armory.png") }}',
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var magic = L.icon({
+    iconUrl: '{{ asset("images/icons/magic.png") }}',
+    iconSize:     [30, 40], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var arena = L.icon({
+    iconUrl: '{{ asset("images/icons/arena.png") }}',
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var food = L.icon({
+    iconUrl: '{{ asset("images/icons/food.png") }}',
+    iconSize:     [30, 35], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+    var userLat = document.querySelector('.js-lat-rating');
+    var userLng = document.querySelector('.js-lng-rating');
+
+    var heroLat = userLat.dataset.isLat;
+    var heroLng = userLng.dataset.isLng;
+
+    var bounds = [[0,0], [1600,2000]];
+    var image = L.imageOverlay('{{ asset("images/stalgrim.jpg") }}', bounds).addTo(map);
+    map.fitBounds(bounds);
+    user = L.marker([1000 , 430], {icon: greenIcon}).addTo(map);
+    potentathavet = L.marker([800, 1000], {icon: maisonIcon}).addTo(map).bindPopup("POTENTATHAVET", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    armoryPoten = L.marker([750, 1200], {icon: armory}).addTo(map);
+    magicPoten = L.marker([1000, 1100], {icon: magic}).addTo(map);
+    arenaPoten = L.marker([900, 700], {icon: arena}).addTo(map);
+    foodPoten = L.marker([500, 800], {icon: food}).addTo(map);
+
+    maison2 = L.marker([1000, 1400], {icon: maisonIcon}).addTo(map).bindPopup("DANTOSHINA", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    visirion = L.marker([800, 498], {icon: maisonIcon}).addTo(map).bindPopup("VISTRION", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    lanrim = L.marker([800, 1508], {icon: maisonIcon}).addTo(map).bindPopup("LAN RIM", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    tenming = L.marker([650, 1508], {icon: maisonIcon}).addTo(map).bindPopup("TENMING", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    maison5 = L.marker([420, 468], {icon: maisonIcon}).addTo(map).bindPopup("FURIEN", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    maison6 = L.marker([480, 1308], {icon: maisonIcon}).addTo(map).bindPopup("FUNMENG", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    maison8 = L.marker([600, 468], {icon: maisonIcon}).addTo(map).bindPopup("PRESIDIEN", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+    maison9 = L.marker([1050, 498], {icon: maisonIcon}).addTo(map).bindPopup("FOLKHEIM", {closeOnClick: false,closeButton: false, autoClose: false}).openPopup();
+
+
+    potentathavet.on('click', function(e) {   
+        latlng.value = "Folkheim";
+        user.setLatLng([ 850 , 1100]);
+    })
+    maison9.on('click', function(e) {   
+        latlng.value = "Folkheim";
+        user.setLatLng([ 1100 , 550]);
+    })
+    tenming.on('click', function(e) {   
+        latlng.value = "Tenming";
+        user.setLatLng([ 670 , 1390]);
+    })
+    lanrim.on('click', function(e) {   
+        latlng.value = "Lan Rim";
+        user.setLatLng([ 850 , 1600]);
+
+    })
+    visirion.on('click', function(e) {   
+        latlng.value = "Visirion";
+        user.setLatLng([ 850 , 520]);
+
+    })
+    maison2.on('click', function(e) {   
+        latlng.value = "Dantoshina";
+        user.setLatLng([ 1100 , 1450]);
+
+    })
+    maison5.on('click', function(e) {   
+
+        latlng.value = "Furien";
+        user.setLatLng([ 480 , 500]);
+
+    })
+    maison8.on('click', function(e) {   
+    latlng.value = "Presidien";
+    user.setLatLng([ 650 , 500]);
+
+    })
+    maison6.on('click', function(e) {   
+    latlng.value = "Funmeng";
+    user.setLatLng([ 550 , 1400]);
+    })    
+    </script>
+{% endblock %}
+

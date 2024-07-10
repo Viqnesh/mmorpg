@@ -1,0 +1,27 @@
+    <div class="navlog">
+        <img class="icon-logo" src="{{ asset('../images/crosssword.png') }}" width="40px">
+        <span class="label-nav" >DECONNEXION</span>
+        <span class="label-nav" > <img src="{{ asset('images/coin.png') }}" height="20px" width="20px">  <p>0</p> </span>
+    </div>
+    <header class="shadow-sm">
+        <ul class="left-menu" style="
+    width: 300px;
+">
+            <li><a href="{{ path('app_map')}}">MONDE</a></li>
+            <li><a href="{{ path('app_shop')}}">SHOP</a></li>
+            <li><a href="{{ path('app_play')}}">JOUER</a></li>
+        </ul>
+        <div class="logoHeader" style="
+    width: 200px;
+    text-align: center;
+">
+        <img class="icon-logo" src="{{ asset('../images/crosssword.png') }}" width="60px">
+        </div>
+        <ul class="right-menu" style="
+    width: 300px;
+">
+            <li><a href="{{ path('app_abilities')}}">COMPETENCES</a></li>
+            <li><a href="{{ path('app_inventory')}}">INVENTAIRE</a></li>
+            <li><a href="{{ path('app_logout')}}">DECONNEXION</a></li>
+        </ul>
+    </header>
